@@ -1,16 +1,13 @@
 # 📖 Flow Deep Dive Sprint
 
----
-
 ## 🛠️ 문제 상황
 
 ### 🧐 상황
 
-북키위 팀의 다음 과제는 **이북 리더기 제작**이다.  
-지난 EPUB 리서치 스프린트에서 **EPUB CFI**를 활용하면 공유 기능을 쉽게 추가할 수 있음을 확인했다.
+지난 EPUB 리서치 스프린트에서 **EPUB CFI**를 활용하면 공유 기능을 이북 리더기에 쉽게 추가할 수 있음을 확인했다.
 [Epub 리서치 스프린트](https://plausible-windflower-bc3.notion.site/Epub-1b2be08797b4809a9401c3d54548219c)
 
-따라서 **이북 리더기만 제대로 제작한다면** 서비스 확장이 가능하다.
+따라서 **이북 리더기 제작**이 팀의 다음 과제인 상황이다.
 
 ### ❌ 문제
 
@@ -27,6 +24,8 @@
 ---
 
 ## 🎯 스프린트 목표
+
+Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하고, 북키위 서비스 적용 방안을 도출하고, 강력한 이력 활동을 확보해보자.
 
 ### 📌 북키위의 목표
 
@@ -76,7 +75,7 @@
 │── 📄 [.npmrc](./.npmrc) # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
 │── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 이미지를 생성하기 위한 스크립트 파일  
 │── 📄 [LICENSE](./LICENSE) # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
-│── 📄 [README.md](./README.md) # 프로젝트 개요 및 설명 문서  
+│── 📄 [README.md](https://github.com/Bookiwi-hub/flow/blob/main/README.md) # 프로젝트 개요 및 설명 문서  
 │── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
 │── 📄 [package.json](./package.json) # npm 패키지 정보 및 의존성 목록  
 │── 📄 [pnpm-lock.yaml](./pnpm-lock.yaml) # pnpm 패키지 매니저의 버전 잠금 파일  
