@@ -71,7 +71,7 @@
 │── 📂 [packages](./deep-dive/packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
 │── 📄 [.dockerignore](./.dockerignore) # Docker 빌드 시 제외할 파일 목록  
 │── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
-│── 📄 [.gitattributes](./.gitattributes) # Git 속성 설정 (CRLF 변환 등)  
+│── 📄 [.gitattributes](./.gitattributes) # 특정 파일 또는 폴더의 Git 속성을 정의하는 설정 파일  
 │── 📄 [.gitignore](./.gitignore) # Git에서 추적하지 않을 파일 목록  
 │── 📄 [.npmrc](./.npmrc) # npm 설정 파일 (프록시, 레지스트리 설정 등)  
 │── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 빌드 설정 파일  
