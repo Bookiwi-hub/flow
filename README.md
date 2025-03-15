@@ -73,7 +73,7 @@
 │── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
 │── 📄 [.gitattributes](./.gitattributes) # 특정 파일 또는 폴더의 Git 속성을 정의하는 설정 파일  
 │── 📄 [.gitignore](./.gitignore) # Git에서 추적하지 않을 파일 목록  
-│── 📄 [.npmrc](./.npmrc) # npm 설정 파일 (프록시, 레지스트리 설정 등)  
+│── 📄 [.npmrc](./.npmrc) # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일
 │── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 빌드 설정 파일  
 │── 📄 [LICENSE](./LICENSE) # 프로젝트의 오픈소스 라이선스 정보  
 │── 📄 [README.md](./README.md) # 프로젝트 개요 및 설명 문서  
