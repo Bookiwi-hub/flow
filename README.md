@@ -75,7 +75,7 @@
 │── 📄 [.gitignore](./.gitignore) # Git에서 추적하지 않을 파일 목록  
 │── 📄 [.npmrc](./.npmrc) # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
 │── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 이미지를 생성하기 위한 스크립트 파일  
-│── 📄 [LICENSE](./LICENSE) # 프로젝트의 오픈소스 라이선스 정보  
+│── 📄 [LICENSE](./LICENSE) # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
 │── 📄 [README.md](./README.md) # 프로젝트 개요 및 설명 문서  
 │── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
 │── 📄 [package.json](./package.json) # npm 패키지 정보 및 의존성 목록  
