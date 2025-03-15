@@ -77,7 +77,7 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 │── 📄 [LICENSE](./LICENSE) # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
 │── 📄 [README.md](https://github.com/Bookiwi-hub/flow/blob/main/README.md) # 프로젝트 개요 및 설명 문서  
 │── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
-│── 📄 [package.json](./package.json) # npm 패키지 정보 및 의존성 목록  
+│── 📄 [package.json](./deep-dive/package.json) # npm 패키지 정보 및 의존성 목록  
 │── 📄 [pnpm-lock.yaml](./pnpm-lock.yaml) # pnpm 패키지 매니저의 버전 잠금 파일  
 │── 📄 [pnpm-workspace.yaml](./pnpm-workspace.yaml) # pnpm 모노레포 워크스페이스 설정  
 │── 📄 [prettier.config.js](./prettier.config.js) # Prettier 코드 포맷팅 설정  
