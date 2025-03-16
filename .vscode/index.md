@@ -6,4 +6,4 @@
 
 ## 내부 파일
 
-│── 📄 [settings.json](../../.vscode/settings.json) # VS Code의 사용자 설정을 프로젝트 수준에서 오버라이드(재정의)하거나 프로젝트에 맞게 조정하기 위한 JSON 형식의 설정 파일
+│── 📄 [settings.json](./settings.json) # VS Code의 사용자 설정을 프로젝트 수준에서 오버라이드(재정의)하거나 프로젝트에 맞게 조정하기 위한 JSON 형식의 설정 파일

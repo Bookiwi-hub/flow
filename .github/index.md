@@ -6,4 +6,4 @@
 
 ## 내부 파일
 
-│── 📄 [FUNDING.yml](../../.github/FUNDING.yml) # GitHub 후원(Sponsor) 버튼을 활성화하는 설정 파일
+│── 📄 [FUNDING.yml](FUNDING.yml) # GitHub 후원(Sponsor) 버튼을 활성화하는 설정 파일
