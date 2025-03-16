@@ -1,10 +1,12 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "TypeScript Library",
-  "extends": "./tsconfig.json",
+  // 이 파일은 순수 TypeScript 라이브러리 개발에 맞춘 설정을 정의합니다.
+  // **왜 분리되었는가?**: UI와 무관한 유틸리티나 백엔드 라이브러리는 DOM이 필요 없으므로 `lib: ["esnext"]`와 같이 DOM을 제외한 설정이 필요하며, 이는 Next.js나 React와 다릅니다.
+  "$schema": "https://json.schemastore.org/tsconfig", // JSON 스키마를 지정하여 편집기에서 자동 완성 및 유효성 검사를 지원합니다.
+  "display": "TypeScript Library", // 이 설정의 이름을 "TypeScript Library"로 지정하여 구분합니다.
+  "extends": "./tsconfig.json", // 기본 tsconfig.json 설정을 상속받아 중복을 줄입니다.
   "compilerOptions": {
-    "lib": ["esnext"],
-    "module": "ESNext",
-    "target": "ES6"
+    "lib": ["esnext"], // DOM API 없이 최신 JavaScript 기능만 지원합니다. (UI와 무관한 라이브러리용)
+    "module": "ESNext", // 최신 ES 모듈 시스템을 사용합니다.
+    "target": "ES6" // ES6로 컴파일하여 최신 환경에서 실행 가능하도록 합니다.
   }
 }
