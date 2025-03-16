@@ -68,17 +68,17 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 │── 📂 [.vscode](./deep-dive/.vscode/index.md) # VS Code 편집기 설정  
 │── 📂 [apps](./deep-dive/apps/index.md) # 애플리케이션 소스 코드  
 │── 📂 [packages](./deep-dive/packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
-│── 📄 [.dockerignore](./.dockerignore) # Docker 빌드 시 제외할 파일 목록  
+│── 📄 .dockerignore # Docker 빌드 시 제외할 파일 목록  
 │── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
 │── 📄 [.gitattributes](./.gitattributes) # 특정 파일 또는 폴더의 Git 속성을 정의하는 설정 파일  
-│── 📄 [.gitignore](./.gitignore) # Git에서 추적하지 않을 파일 목록  
-│── 📄 [.npmrc](./.npmrc) # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
+│── 📄 .gitignore # Git에서 추적하지 않을 파일 목록  
+│── 📄 .npmrc # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
 │── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 이미지를 생성하기 위한 스크립트 파일  
-│── 📄 [LICENSE](./LICENSE) # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
-│── 📄 [README.md](https://github.com/Bookiwi-hub/flow/blob/main/README.md) # 프로젝트 개요 및 설명 문서  
+│── 📄 LICENSE # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
+│── 📄 README.md # 프로젝트 개요 및 설명 문서  
 │── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
 │── 📄 [package.json](./deep-dive/package.json) # npm 패키지 정보 및 의존성 목록  
-│── 📄 [pnpm-lock.yaml](./pnpm-lock.yaml) # pnpm 패키지 매니저의 버전 잠금 파일  
+│── 📄 pnpm-lock.yaml # pnpm 패키지 매니저의 버전 잠금 파일  
 │── 📄 [pnpm-workspace.yaml](./pnpm-workspace.yaml) # pnpm 모노레포 워크스페이스 설정  
 │── 📄 [prettier.config.js](./prettier.config.js) # Prettier 코드 포맷팅 설정  
 │── 📄 [tsconfig.json](./tsconfig.json) # TypeScript 기본 설정 파일  
