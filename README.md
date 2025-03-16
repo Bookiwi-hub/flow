@@ -85,4 +85,4 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 │── 📄 [tsconfig.next.json](./tsconfig.next.json) # Next.js 프로젝트의 TypeScript 설정  
 │── 📄 [tsconfig.react.json](./tsconfig.react.json) # React 프로젝트 전용 TypeScript 설정  
 │── 📄 [tsconfig.ts.json](./tsconfig.ts.json) # TypeScript 설정 파일  
-│── 📄 [turbo.json](./turbo.json) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
+│── 📄 [turbo.json](./turbo.json.md) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
