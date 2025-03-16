@@ -1,11 +1,19 @@
+/**
+* @author 조현지
+* @description Netlify 배포 설정 파일
+* @date 2025-03-16
+*/
+
 [build.environment]
-NODE_VERSION = "16"
+NODE_VERSION = "16" 
+# Node.js 버전을 16으로 지정한다.
 # https://github.com/netlify/build/issues/1633#issuecomment-907246600
-NPM_FLAGS = "--version" # prevent Netlify npm install
+NPM_FLAGS = "--version" 
+# Netlify의 기본 npm install을 방지한다.
 
 [build]
 # Set `base` to repo directory in Netlify UI
 # base = 'reader'
-publish = ".next"
+publish = ".next" # 배포할 디렉토리를 .next로 지정한다.
 # https://answers.netlify.com/t/using-pnpm-and-pnpm-workspaces/2759
-command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm -F reader... build"
+command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm -F reader... build" # 빌드 명령어를 정의한다.
