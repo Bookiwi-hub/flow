@@ -1,0 +1,55 @@
+@startuml
+
+
+folder "Flow Monorepo" as monorepo {
+
+
+    folder "packages/" as packages {
+        folder "📚 epubjs (EPUB Library)" as epubjs
+        folder "🔧 internal (Shared Module)" as internal
+        folder "🎨 tailwind (Tailwind CSS)" as tailwind
+    }
+
+ 
+    folder "apps/" as apps {
+        folder "🌐 website" as website
+        folder "📖 reader" as reader
+    }
+
+
+    file "🛠️ pnpm-workspace.yaml" as pnpm
+    file "🐳 dockerFile" as dockerfile
+}
+
+
+node "Docker" as docker {
+    node "build process" as process {
+        process "🚀 러너 단계\n(최종 이미지로 실행)" as runner
+        process "📦 설치 단계\n(reader 빌드)" as installer
+        process "🔧 빌더 단계\n(Turborepo로 필요한 파일 추출)" as builder
+    }
+
+    component "📦 이미지 (Built Image)" as docker_image
+}
+
+dockerfile -> process
+runner-->docker_image
+
+
+
+pnpm --> apps : Subfolders are recognized as packages.
+pnpm --> packages 
+
+
+reader ...> internal 
+reader ...> tailwind 
+reader ...> epubjs : use
+
+
+website ...> internal
+website ...> tailwind 
+website ...> epubjs 
+
+process --> reader: Build only the reader package
+
+@enduml
