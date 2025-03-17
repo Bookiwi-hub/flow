@@ -15,7 +15,7 @@
 - 어떻게 만들어야 할지 전혀 모른다.
 - 만들어도 형편없는 결과물이 나올 가능성이 크다.
 
-독서 경험을 더욱 즐겁게 만들어야 하는 서비스에서, **핵심이 되는 뷰어가 엉망이라면 말도 안 된다.**
+독서 경험을 더욱 즐겁게 만들어야 하는 서비스, **핵심이 되는 뷰어가 잘 작동하지 않으면 곤란하다.**
 
 ### 💡 해결 아이디어
 
@@ -86,3 +86,8 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 │── 📄 [tsconfig.react.json](./tsconfig.react.json) # React 프로젝트 전용 TypeScript 설정  
 │── 📄 [tsconfig.ts.json](./tsconfig.ts.json) # TypeScript 설정 파일  
 │── 📄 [turbo.json](./turbo.json.md) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
+
+### 모노레포 구조
+
+![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
+[Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
