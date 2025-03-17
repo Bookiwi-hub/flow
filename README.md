@@ -1,16 +1,13 @@
 # 📖 Flow Deep Dive Sprint
 
----
-
 ## 🛠️ 문제 상황
 
 ### 🧐 상황
 
-북키위 팀의 다음 과제는 **이북 리더기 제작**이다.  
-지난 EPUB 리서치 스프린트에서 **EPUB CFI**를 활용하면 공유 기능을 쉽게 추가할 수 있음을 확인했다.
+지난 EPUB 리서치 스프린트에서 **EPUB CFI**를 활용하면 공유 기능을 이북 리더기에 쉽게 추가할 수 있음을 확인했다.
 [Epub 리서치 스프린트](https://plausible-windflower-bc3.notion.site/Epub-1b2be08797b4809a9401c3d54548219c)
 
-따라서 **이북 리더기만 제대로 제작한다면** 서비스 확장이 가능하다.
+따라서 **이북 리더기 제작**이 팀의 다음 과제인 상황이다.
 
 ### ❌ 문제
 
@@ -18,7 +15,7 @@
 - 어떻게 만들어야 할지 전혀 모른다.
 - 만들어도 형편없는 결과물이 나올 가능성이 크다.
 
-독서 경험을 더욱 즐겁게 만들어야 하는 서비스에서, **핵심이 되는 뷰어가 엉망이라면 말도 안 된다.**
+독서 경험을 더욱 즐겁게 만들어야 하는 서비스, **핵심이 되는 뷰어가 잘 작동하지 않으면 곤란하다.**
 
 ### 💡 해결 아이디어
 
@@ -27,6 +24,8 @@
 ---
 
 ## 🎯 스프린트 목표
+
+Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하고, 북키위 서비스 적용 방안을 도출하고, 강력한 이력 활동을 확보해보자.
 
 ### 📌 북키위의 목표
 
@@ -64,29 +63,29 @@
 
 ## 🚀 성과
 
-│── 📂 [.github](./deep-dive/.github/index.md) # GitHub 관련 설정 (워크플로우, 이슈 템플릿 등)  
-│── 📂 [.husky](./deep-dive/.husky/index.md) # Git Hooks 관리 (pre-commit, pre-push 등)  
-│── 📂 [.vscode](./deep-dive/.vscode/index.md) # VS Code 편집기 설정  
-│── 📂 [apps](./deep-dive/apps/index.md) # 애플리케이션 소스 코드  
-│── 📂 [packages](./deep-dive/packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
-│── 📄 [.dockerignore](./.dockerignore) # Docker 빌드 시 제외할 파일 목록  
+│── 📂 [.github](./.github/index.md) # GitHub 관련 설정 (FUNDING.yml)  
+│── 📂 [.husky](./.husky/index.md) # Husky와 관련된 설정 파일들을 저장하는 디렉터리  
+│── 📂 [.vscode](./.vscode/index.md) # VS Code 편집기 설정  
+│── 📂 [apps](./apps/index.md) # 애플리케이션 소스 코드  
+│── 📂 [packages](./packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
+│── 📄 .dockerignore # Docker 빌드 시 제외할 파일 목록  
 │── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
-│── 📄 [.gitattributes](./.gitattributes) # Git 속성 설정 (CRLF 변환 등)  
-│── 📄 [.gitignore](./.gitignore) # Git에서 추적하지 않을 파일 목록  
-│── 📄 [.npmrc](./.npmrc) # npm 설정 파일 (프록시, 레지스트리 설정 등)  
-│── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 빌드 설정 파일  
-│── 📄 [LICENSE](./LICENSE) # 프로젝트의 오픈소스 라이선스 정보  
-│── 📄 [README.md](./README.md) # 프로젝트 개요 및 설명 문서  
+│── 📄 [.gitattributes](./.gitattributes) # 특정 파일 또는 폴더의 Git 속성을 정의하는 설정 파일  
+│── 📄 .gitignore # Git에서 추적하지 않을 파일 목록  
+│── 📄 .npmrc # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
+│── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 이미지를 생성하기 위한 스크립트 파일  
+│── 📄 LICENSE # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
+│── 📄 README.md # 프로젝트 개요 및 설명 문서  
 │── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
-│── 📄 [package.json](./package.json) # npm 패키지 정보 및 의존성 목록  
-│── 📄 [pnpm-lock.yaml](./pnpm-lock.yaml) # pnpm 패키지 매니저의 버전 잠금 파일  
+│── 📄 [package.json](./package.json.md) # npm 패키지 정보 및 의존성 목록  
+│── 📄 pnpm-lock.yaml # pnpm 패키지 매니저의 버전 잠금 파일  
 │── 📄 [pnpm-workspace.yaml](./pnpm-workspace.yaml) # pnpm 모노레포 워크스페이스 설정  
 │── 📄 [prettier.config.js](./prettier.config.js) # Prettier 코드 포맷팅 설정  
 │── 📄 [tsconfig.json](./tsconfig.json) # TypeScript 기본 설정 파일  
 │── 📄 [tsconfig.next.json](./tsconfig.next.json) # Next.js 프로젝트의 TypeScript 설정  
 │── 📄 [tsconfig.react.json](./tsconfig.react.json) # React 프로젝트 전용 TypeScript 설정  
 │── 📄 [tsconfig.ts.json](./tsconfig.ts.json) # TypeScript 설정 파일  
-│── 📄 [turbo.json](./turbo.json) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
+│── 📄 [turbo.json](./turbo.json.md) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
 
 ### 모노레포 구조
 

@@ -1,1 +1,9 @@
 packages/epubjs/** linguist-vendored
+
+# GitHub는 Linguist라는 도구를 사용하여 저장소에서 사용된 프로그래밍 언어의 비율을 분석한다.
+# 이 설정은 Linguist에게 packages/epubjs/ 폴더 안의 모든 파일을 벤더 코드(vendored code)로 취급하도록 한다.
+
+# `linguist-vendored` 속성의 역할:
+# - GitHub의 코드 언어 분석에서 제외되어, 프로젝트의 실제 코드 기여 통계를 정확하게 유지한다.
+# - 코드 리뷰 시 해당 폴더의 파일이 기본적으로 숨겨져 코드 검토를 더 효율적으로 진행할 수 있다.
+# - 일반적으로 직접 작성한 코드가 아닌, 외부 라이브러리나 서드파티 모듈에 적용된다.
