@@ -9,9 +9,11 @@ import nookies from 'nookies'
 // setCookie(새 쿠키 설정. 만료시간, 경로 옵션 지정 가능),
 // destroyCookie(특정 쿠키 삭제)
 
-import { mapToToken } from '@flow/reader/sync' // dropbox에 값 반환. 무슨 값인지 이따 알아보자자
+import { mapToToken } from '@flow/reader/sync' // dropbox-refresh-token을 반환
+// 왜 dropbox-refresh-token이 아니라 mapToToken 객체를 사용하는가?
+// dropbox 이외의 다른 토큰도 해당 객체에 추가 할 수 있어 확장성이 좋고, 일관성있게 관리할 수 있음.
 
-import { dbx } from '../utils' // dropbox API 클라이언트 인스턴스스
+import { dbx } from '../utils' // dropbox API 클라이언트 인스턴스
 
 export default async function handler(
   req: NextApiRequest,
@@ -42,7 +44,7 @@ export default async function handler(
 
   // https://stackoverflow.com/questions/4694089/sending-browser-cookies-during-a-302-redirect
   // 302 리디렉션 중 쿠키가 정상적으로 설정되나? 에 대한 이야기
-  // 쿠키의 SamSite 속성에 따라 동작이 달라질 수 있음.
+  // 쿠키의 SameSite 속성에 따라 동작이 달라질 수 있음.
   // SameSite=Strict: 동일 사이트 요청에서만 쿠키가 전송됨 → 리디렉션 후 요청에서는 쿠키가 전달되지 않을 수 있음.
   // SameSite=Lax: 안전한 HTTP 메서드(GET)에서만 크로스 사이트 요청 가능 → OAuth 등의 인증 과정에서 쿠키가 전달되지 않을 수 있음.
   // SameSite=None: 모든 요청에서 쿠키 전송 가능하지만 Secure 속성이 필요함 (HTTPS 필수).
