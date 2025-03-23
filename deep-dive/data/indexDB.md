@@ -1,5 +1,7 @@
 # IndexedDB와 Dexie.js
 
+작성자: 채종민
+
 ## 1. IndexedDB란?
 
 ### 1.1 IndexedDB 개요
