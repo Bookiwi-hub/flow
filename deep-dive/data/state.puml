@@ -1,0 +1,30 @@
+@startuml
+
+interface Settings {
+  +fontSize: string | undefined
+  +fontWeight: number | undefined
+  +fontFamily: string | undefined
+  +lineHeight: number | undefined
+  +spread: RenditionSpread | undefined
+  +zoom: number | undefined
+  +theme: ThemeConfiguration | undefined
+}
+
+interface TypographyConfiguration {
+  +fontSize: string | undefined
+  +fontWeight: number | undefined
+  +fontFamily: string | undefined
+  +lineHeight: number | undefined
+  +spread: RenditionSpread | undefined
+  +zoom: number | undefined
+}
+
+interface ThemeConfiguration {
+  +source: string | undefined
+  +background: number | undefined
+}
+
+Settings --|> TypographyConfiguration : extends
+Settings --> ThemeConfiguration : uses
+
+@enduml
