@@ -1,11 +1,13 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "React Library",
-  "extends": "./tsconfig.json",
+  // 이 파일은 React 라이브러리 개발에 맞춘 TypeScript 설정을 정의합니다.
+  // **왜 분리되었는가?**: React는 JSX를 사용하므로 `jsx: "react-jsx"`와 같은 React 특화 설정이 필요하며, 이는 Next.js나 순수 TypeScript와 다릅니다.
+  "$schema": "https://json.schemastore.org/tsconfig", // JSON 스키마를 지정하여 편집기에서 자동 완성 및 유효성 검사를 지원합니다.
+  "display": "React Library", // 이 설정의 이름을 "React Library"로 지정하여 구분합니다.
+  "extends": "./tsconfig.json", // 기본 tsconfig.json 설정을 상속받아 중복을 줄입니다.
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "ESNext",
-    "target": "ES6",
-    "jsx": "react-jsx"
+    "lib": ["dom", "dom.iterable", "esnext"], // DOM과 최신 JavaScript 기능을 지원합니다. (React는 DOM과 상호작용)
+    "module": "ESNext", // 최신 ES 모듈 시스템을 사용합니다.
+    "target": "ES6", // ES6로 컴파일하여 브라우저 호환성을 유지합니다.
+    "jsx": "react-jsx" // React 17+에서 사용하는 JSX 처리 방식을 적용합니다. (React.createElement 자동 호출)
   }
 }

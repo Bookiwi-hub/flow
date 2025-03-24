@@ -1,25 +1,29 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default",
+  // 이 파일은 프로젝트의 기본 TypeScript 설정을 정의합니다.
+  // 다른 tsconfig 파일들이 이 설정을 상속받아 프레임워크나 환경에 맞는 추가 설정을 적용합니다.
+  // 모든 환경에서 공통으로 사용되는 설정을 한 곳에 모아 중복을 피하고 유지보수를 용이하게 하기 위함입니다.
+  "$schema": "https://json.schemastore.org/tsconfig", // JSON 스키마를 지정하여 편집기에서 자동 완성 및 유효성 검사를 지원합니다.
+  "display": "Default", // 이 설정의 이름을 "Default"로 지정하여 구분합니다.
   "compilerOptions": {
-    "composite": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
-    "isolatedModules": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-    "noUncheckedIndexedAccess": true,
-    "strict": true,
-    "baseUrl": ".",
+    "composite": false, // 프로젝트가 여러 개의 tsconfig 파일을 사용하는 복합 프로젝트가 아님을 명시합니다.
+    "esModuleInterop": true, // CommonJS 모듈과 ES 모듈 간의 상호 운용성을 개선합니다. (예: `import React from 'react'` 지원)
+    "forceConsistentCasingInFileNames": true, // 파일 이름의 대소문자를 일관되게 처리하여 오류를 방지합니다. (Windows/Linux 호환성)
+    "inlineSources": false, // 소스 맵에 소스 코드를 인라인으로 포함하지 않습니다. (디버깅 시 별도 소스 파일 참조)
+    "isolatedModules": true, // 각 파일을 독립적인 모듈로 간주하여 컴파일합니다. (Babel 등 외부 트랜스파일러 호환성)
+    "moduleResolution": "node", // Node.js 스타일의 모듈 해석 방식을 사용합니다. (node_modules에서 모듈 탐색)
+    "noUnusedLocals": false, // 사용되지 않은 지역 변수를 허용합니다. (경고 비활성화로 유연성 제공)
+    "noUnusedParameters": false, // 사용되지 않은 매개변수를 허용합니다. (경고 비활성화로 유연성 제공)
+    "preserveWatchOutput": true, // watch 모드에서 이전 컴파일 출력을 유지합니다. (터미널 로그 유지)
+    "skipLibCheck": true, // .d.ts 파일의 타입 검사를 건너뛰어 컴파일 속도를 높입니다. (타사 라이브러리 오류 무시)
+    "noUncheckedIndexedAccess": true, // 인덱스 접근 시 undefined 가능성을 엄격히 검사합니다. (예: arr[0] 체크)
+    "strict": true, // 모든 엄격한 타입 검사 옵션을 활성화합니다. (null 체크, 반환 타입 검사 등)
+    "baseUrl": ".", // 모듈 경로의 기준 디렉토리를 현재 디렉토리로 설정합니다. (절대 경로 사용 가능)
     "paths": {
-      "@flow/reader/*": ["apps/reader/src/*"],
-      "@flow/internal": ["packages/internal/src/index.ts"],
-      "@flow/epubjs/*": ["packages/epubjs/*"]
+      // 모듈 경로 별칭을 설정하여 import 경로를 간소화합니다.
+      "@flow/reader/*": ["apps/reader/src/*"], // @flow/reader/* → apps/reader/src/*로 매핑
+      "@flow/internal": ["packages/internal/src/index.ts"], // @flow/internal → packages/internal/src/index.ts로 매핑
+      "@flow/epubjs/*": ["packages/epubjs/*"] // @flow/epubjs/* → packages/epubjs/*로 매핑
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"] // node_modules 디렉토리를 컴파일 대상에서 제외합니다. (불필요한 컴파일 방지)
 }

@@ -1,3 +1,17 @@
+# pnpm-workspace.yaml: pnpm이 모노레포의 작업 공간을 정의하는 설정 파일
+# 이 파일은 pnpm에게 어떤 폴더가 패키지로 관리될지 알려줌
 packages:
-  - "apps/*"
-  - "packages/*"
+  # 'apps/*': apps 폴더 안 모든 하위 폴더를 패키지로 인식
+  # 현재 apps 안에는 'reader'와 'website'가 있음
+  # - 'reader': @flow/reader 앱 (flow 이북 리더기 앱)
+  # - 'website': @flow/website 앱 (flow 웹사이트)
+  - 'apps/*'
+
+  # 'packages/*': packages 폴더 안 모든 하위 폴더를 패키지로 인식
+  # 현재 packages 안에는 'epubjs', 'internal', 'tailwind'가 있음
+  # - 'epubjs': EPUB 파일을 다루는 라이브러리
+  # - 'internal': 모노레포 안에서 공통적으로 사용되는 유틸리티나 헬퍼 함수
+  # - 'tailwind': Tailwind CSS 관련 설정이나 커스터마이징
+  - 'packages/*'
+# pnpm은 npm이나 Yarn과 비슷하지만, 더 효율적으로 의존성을 관리하고 모노레포(monorepo)를 지원하는 데 강점이 있다.
+# 이 파일은 모노레포에서 어떤 폴더들이 프로젝트(패키지)로 취급될지 정의한다.

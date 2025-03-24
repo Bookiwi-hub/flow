@@ -1,21 +1,23 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
-  "extends": "./tsconfig.json",
+  // 이 파일은 Next.js 프로젝트에 특화된 TypeScript 설정을 정의합니다.
+  // **왜 분리되었는가?**: Next.js는 SSR(서버 사이드 렌더링)과 SSG(정적 사이트 생성)를 지원하기 위해 `jsx: "preserve"`, `noEmit: true`와 같은 특정 컴파일러 옵션이 필요하며, 이는 React나 순수 TypeScript와 다릅니다.
+  "$schema": "https://json.schemastore.org/tsconfig", // JSON 스키마를 지정하여 편집기에서 자동 완성 및 유효성 검사를 지원합니다.
+  "display": "Next.js", // 이 설정의 이름을 "Next.js"로 지정하여 구분합니다.
+  "extends": "./tsconfig.json", // 기본 tsconfig.json 설정을 상속받아 중복을 줄입니다.
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    "target": "es6", // ES6로 컴파일하여 브라우저 호환성을 유지합니다.
+    "lib": ["dom", "dom.iterable", "esnext"], // DOM과 최신 JavaScript 기능을 지원합니다. (클라이언트/서버 모두 실행)
+    "allowJs": true, // JavaScript 파일을 허용하여 TypeScript와 혼용할 수 있게 합니다.
+    "skipLibCheck": true, // .d.ts 파일의 타입 검사를 건너뛰어 컴파일 속도를 높입니다.
+    "forceConsistentCasingInFileNames": true, // 파일 이름의 대소문자 일관성을 강제하여 오류를 방지합니다.
+    "noEmit": true, // TypeScript가 JavaScript 파일을 생성하지 않도록 합니다. (Next.js가 컴파일 처리)
+    "incremental": true, // 증분 컴파일을 활성화하여 재컴파일 속도를 높입니다.
+    "esModuleInterop": true, // CommonJS와 ES 모듈 간의 상호 운용성을 개선합니다.
+    "module": "esnext", // 최신 ES 모듈 시스템을 사용합니다.
+    "resolveJsonModule": true, // JSON 파일을 모듈로 import할 수 있게 합니다.
+    "isolatedModules": true, // 각 파일을 독립적으로 컴파일합니다. (Next.js와 Babel 호환성)
+    "jsx": "preserve" // JSX를 변환하지 않고 그대로 유지하여 Next.js가 처리하도록 합니다.
   },
-  "include": ["src", "next-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src", "next-env.d.ts"], // src 디렉토리와 Next.js 타입 정의 파일을 컴파일 대상으로 지정합니다.
+  "exclude": ["node_modules"] // node_modules 디렉토리를 컴파일 대상에서 제외합니다.
 }

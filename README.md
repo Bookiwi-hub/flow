@@ -1,87 +1,93 @@
-<h1 align="center"><a href="https://flowoss.com">Flow - Open Source Software (OSS)</a></h1>
+# 📖 Flow Deep Dive Sprint
 
-<h2 align="center">Redefine ePub reader</h2>
+## 🛠️ 문제 상황
 
-<p align="center">Free. Open source. Browser-based.</p>
+### 🧐 상황
 
-<p align="center"><img src="apps/website/public/screenshots/en-US.webp"/>
-</p>
+지난 EPUB 리서치 스프린트에서 **EPUB CFI**를 활용하면 공유 기능을 이북 리더기에 쉽게 추가할 수 있음을 확인했다.
+[Epub 리서치 스프린트](https://plausible-windflower-bc3.notion.site/Epub-1b2be08797b4809a9401c3d54548219c)
 
-## Features
+따라서 **이북 리더기 제작**이 팀의 다음 과제인 상황이다.
 
-- Grid layout
-- Search in book
-- Image preview
-- Custom typography
-- Highlight and Annotation
-- Theme
-- Share/Download book with link
-- Data export
-- Cloud storage
+### ❌ 문제
 
-For planed features, see our [roadmap](https://pacexy.notion.site/283696d0071c43bfb03652e8e5f47936?v=b43f4dd7a3cb4ce785d6c32b698a8ff5).
+- 팀이 리더기 제작 경험이 전무하다.
+- 어떻게 만들어야 할지 전혀 모른다.
+- 만들어도 형편없는 결과물이 나올 가능성이 크다.
 
-## Development
+독서 경험을 더욱 즐겁게 만들어야 하는 서비스, **핵심이 되는 뷰어가 잘 작동하지 않으면 곤란하다.**
 
-### Prerequisites
+### 💡 해결 아이디어
 
-- [Node.js](https://nodejs.org)
-- [pnpm](https://pnpm.io/installation)
-- [Git](https://git-scm.com/downloads)
+기존 오픈소스 이북 리더기 **"Flow"를 분석하는 "Flow Deep Dive Sprint"를 진행하자.**
 
-### Clone the repo
+---
 
-```bash
-git clone https://github.com/pacexy/flow
-```
+## 🎯 스프린트 목표
 
-### Install the dependencies
+Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하고, 북키위 서비스 적용 방안을 도출하고, 강력한 이력 활동을 확보해보자.
 
-```bash
-pnpm i
-```
+### 📌 북키위의 목표
 
-### Setup the environment variables
+- **이북 리더기 개발 역량 확보**
 
-Copy and rename all `.env.local.example`s to `.env.local` and setup the environment variables.
+  - EPUB CFI와 **epub.js 기반의 리더기 개발 원리**를 이해한다.
+  - 기존 오픈소스 리더기(Flow)의 **구조와 구현 방식을 분석하여 벤치마킹**한다.
 
-### Run the apps
+- **기술적 리스크 최소화 및 구현 방향 설정**
+  - 개발 과정에서 발생할 수 있는 **기술적 장애물을 사전 파악**하고 해결 방안을 모색한다.
+  - Flow 코드를 분석하여 **북키위 서비스에 적합한 기술 스택을 정리**한다.
 
-```bash
-pnpm dev
-```
+---
 
-## Self-hosting
+### 📌 커리어 목표
 
-Before self-hosting, you should [setup the environment variables](#setup-the-environment-variables).
+- **우수한 개발자의 코드 분석을 통해 실력을 향상한다.**
 
-### Docker
+  - 코딩 및 설계 역량 강화
 
-You can use docker-compose:
+- **기존 프로젝트의 코드 리딩 및 분석 역량을 키운다.**
 
-```sh
-docker compose up -d
-```
+  - 다양한 코드베이스를 빠르게 파악하고, 협업 및 코드 리뷰 능력을 성장시킨다.
 
-Or build the image and run it manually:
+- **이력서에 어필할 수 있는 경험을 쌓는다.**
+  - 레포지토리 분석 경험을 포트폴리오에 추가
+  - 오픈소스 기여 경험을 통한 문제 해결 능력 강조
+  - 코드 리딩 및 분석 능력 강화
+  - 레거시 코드 적응력 향상
+  - 학습 열정과 능력 강조
 
-```sh
-docker build -t flow .
-docker run -p 3000:3000 --env-file apps/reader/.env.local flow
-```
+## 🔍 How to deep dive
 
-## Contributing
+**레포지토리의 폴더, 파일, 코드의 역할을 주석으로 정리한다.**
 
-There are many ways in which you can participate in this project, for example:
+## 🚀 성과
 
-- [Submit bugs and feature requests](https://github.com/pacexy/flow/issues/new), and help us verify as they are checked in
-- [Submit pull requests](https://github.com/pacexy/flow/pulls)
+│── 📂 [.github](./.github/index.md) # GitHub 관련 설정 (FUNDING.yml)  
+│── 📂 [.husky](./.husky/index.md) # Husky와 관련된 설정 파일들을 저장하는 디렉터리  
+│── 📂 [.vscode](./.vscode/index.md) # VS Code 편집기 설정  
+│── 📂 [apps](./apps/index.md) # 애플리케이션 소스 코드  
+│── 📂 [packages](./packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
+│── 📄 .dockerignore # Docker 빌드 시 제외할 파일 목록  
+│── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
+│── 📄 [.gitattributes](./.gitattributes) # 특정 파일 또는 폴더의 Git 속성을 정의하는 설정 파일  
+│── 📄 .gitignore # Git에서 추적하지 않을 파일 목록  
+│── 📄 .npmrc # npm 및 pnpm의 동작을 커스터마이징하는 설정 파일  
+│── 📄 [Dockerfile](./Dockerfile) # Docker 컨테이너 이미지를 생성하기 위한 스크립트 파일  
+│── 📄 LICENSE # GNU Affero General Public License (AGPL) v3 라이선스: "이 프로젝트는 오픈소스로 자유롭게 사용 가능하지만, 수정하거나 웹 서비스로 배포하면 무조건 소스 코드를 공개해야 한다!"  
+│── 📄 README.md # 프로젝트 개요 및 설명 문서  
+│── 📄 [docker-compose.yml](./docker-compose.yml) # Docker Compose 설정 (멀티 컨테이너 관리)  
+│── 📄 [package.json](./package.json.md) # npm 패키지 정보 및 의존성 목록  
+│── 📄 pnpm-lock.yaml # pnpm 패키지 매니저의 버전 잠금 파일  
+│── 📄 [pnpm-workspace.yaml](./pnpm-workspace.yaml) # pnpm 모노레포 워크스페이스 설정  
+│── 📄 [prettier.config.js](./prettier.config.js) # Prettier 코드 포맷팅 설정  
+│── 📄 [tsconfig.json](./tsconfig.json) # TypeScript 기본 설정 파일  
+│── 📄 [tsconfig.next.json](./tsconfig.next.json) # Next.js 프로젝트의 TypeScript 설정  
+│── 📄 [tsconfig.react.json](./tsconfig.react.json) # React 프로젝트 전용 TypeScript 설정  
+│── 📄 [tsconfig.ts.json](./tsconfig.ts.json) # TypeScript 설정 파일  
+│── 📄 [turbo.json](./turbo.json.md) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
 
-## Credits
+### 모노레포 구조
 
-- [Epub.js](https://github.com/futurepress/epub.js/)
-- [React](https://github.com/facebook/react)
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org)
-- [Vercel](https://vercel.com)
-- [Turborepo](https://turbo.build/repo)
+![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
+[Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
