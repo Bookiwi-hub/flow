@@ -1,0 +1,36 @@
+@startuml
+
+
+rectangle client as "client"{
+
+    database indexDB as "indexDB"{
+        collections DB as "DB"
+    }
+
+
+    rectangle APP as "APP"{
+        storage Recoil as "Recoil"{
+            card RecoilSettings as "Settings"
+        }
+        
+    }
+
+    storage localStorage as "localstorage"{
+        card localStorageSettings as "Settings"
+    }
+
+}
+
+database dropbox as "dropbox"{
+    collections dropboxDB as "DB"
+
+}
+
+Recoil <--> localStorage :AtomEffect
+
+RecoilSettings-[dashed]-localStorageSettings:sync
+
+APP<->indexDB:dexie
+APP<->dropbox:dropbox API
+DB-[dashed]-dropboxDB:sync
+@enduml

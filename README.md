@@ -91,3 +91,30 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
 [Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
+
+### 데이터 구조 및 관리
+
+---
+
+- **데이터베이스 데이터**  
+  indexDB & dropbox
+  ![데이터베이스 구조](./deep-dive/data/database.png)
+
+---
+
+- **전역 상태 데이터**  
+  recoil  
+  ![전역 상태](./deep-dive/data/state.png)
+
+---
+
+- **데이터 관리 흐름**  
+  데이터의 동기화 및 관리 흐름 구조 정리
+  ![데이터 관리 흐름](./deep-dive/data/sync.png)
+
+---
+
+- [indexDB란?](./deep-dive/data/indexDB.md)
+- [Blob 데이터란?](./deep-dive/data/blob.md)
+- [Data URL이란?](./deep-dive/data/Data%20URL.md)
+- [FileReader란?](./deep-dive/data/fileReader.md)
