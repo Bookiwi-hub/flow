@@ -10,30 +10,30 @@
 
 ```mermaid
 flowchart TD
-    BookTab["BookTab 클래스"] --> |"1. 초기화"| Book["Book 객체(epub.js)"]
+    BookTab["BookTab 클래스"] --> |"초기화"| Book["Book 객체(epub.js)"]
     Book --> |"로드"| SpineData["Spine 데이터(문서 논리적 순서)"]
     Book --> |"로드"| NavData["Navigation 데이터(목차)"]
 
-    BookTab --> |"2. 렌더링"| Rendition["Rendition 객체(epub.js)"]
+    BookTab --> |"렌더링"| Rendition["Rendition 객체(epub.js)"]
     Rendition --> |"표시"| Container["Container(DOM 요소)"]
 
-    BookTab --> |"3. 위치 추적"| Timeline["Timeline(사용자 탐색 기록)"]
+    BookTab --> |"위치 추적"| Timeline["Timeline(사용자 탐색 기록)"]
     Timeline --> |"저장"| Location["Location 객체(현재 위치)"]
     Location --> |"업데이트"| BookRecord["BookRecord(진행률, CFI 등)"]
 
-    BookTab --> |"4. 검색"| SearchModule["검색 기능(키워드 검색)"]
+    BookTab --> |"검색"| SearchModule["검색 기능(키워드 검색)"]
     SearchModule --> |"결과"| Results["IMatch[](검색 결과)"]
 
-    BookTab --> |"5. 탐색"| Navigation["탐색 기능"]
+    BookTab --> |"탐색"| Navigation["탐색 기능"]
     Navigation --> |"이동"| Display["display(target)(특정 위치로 이동)"]
     Navigation --> |"이전"| Prev["prev()(이전 페이지)"]
     Navigation --> |"다음"| Next["next()(다음 페이지)"]
 
-    BookTab --> |"6. 주석"| Annotation["주석 기능"]
+    BookTab --> |"주석"| Annotation["주석 기능"]
     Annotation --> |"추가"| PutAnnotation["putAnnotation()(주석 추가/수정)"]
     Annotation --> |"제거"| RemoveAnnotation["removeAnnotation()(주석 제거)"]
 
-    BookTab --> |"7. 정의"| Definition["정의 기능"]
+    BookTab --> |"정의"| Definition["정의 기능"]
     Definition --> |"추가"| Define["define()(정의 추가)"]
     Definition --> |"제거"| Undefine["undefine()(정의 제거)"]
 
