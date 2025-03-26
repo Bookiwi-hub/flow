@@ -89,8 +89,11 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ### 모노레포 구조
 
-![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
+---
+
 [Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
+
+![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
 
 ### 데이터 구조 및 관리
 
@@ -118,3 +121,13 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [Blob 데이터란?](./deep-dive/data/blob.md)
 - [Data URL이란?](./deep-dive/data/Data%20URL.md)
 - [FileReader란?](./deep-dive/data/fileReader.md)
+
+### 컴포넌트
+
+---
+
+#### preventFlash
+
+[FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
+
+![데이터 관리 흐름](./deep-dive/components/PreventFlash/uml.png)
