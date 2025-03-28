@@ -1,7 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * @author ☯채종민
+ * @description 전역 스타일시트로, Tailwind CSS 프레임워크를 사용
+ * @date 2025-03-26
+ */
 
+/* @tailwind 지시문들은 Tailwind CSS 프레임워크의 스타일을 가져오는 역할을 합니다 */
+@tailwind base; /* Tailwind의 기본 스타일 가져오기 */
+@tailwind components; /* Tailwind의 컴포넌트 클래스 가져오기 */
+@tailwind utilities; /* Tailwind의 유틸리티 클래스 가져오기 */
+
+/* 전체 레이아웃이 화면 높이를 100% 차지하도록 설정 */
 html,
 body,
 #__next,
@@ -9,12 +17,21 @@ body,
   height: 100%;
 }
 
+/* @apply 지시문 설명:
+   - Tailwind CSS의 유틸리티 클래스들을 CSS 규칙 내에서 직접 사용할 수 있게 해주는 지시문
+   - 예: @apply flex flex-col overflow-hidden;
+   - 이는 flex, flex-col, overflow-hidden 클래스들의 스타일을 직접 적용하는 것과 동일
+   - 코드 재사용성을 높이고 일관된 스타일링을 유지하는데 도움을 줌 
+*/
+
+/* 폼 요소들의 기본 스타일 - 테두리 스타일 적용 */
 .checkbox,
 .textfield,
 select {
   @apply ring-surface-variant ring-1 ring-inset;
 }
 
+/* 포커스 상태의 요소들에 대한 스타일 설정 - 테두리 색상 변경 및 기본 외곽선 제거 */
 .textfield:focus-within,
 select:focus-visible,
 button:focus-visible,
@@ -23,11 +40,13 @@ a:focus-visible {
   @apply ring-primary70 ring-1 ring-inset;
 }
 
+/* 입력 요소들의 포커스 시 기본 외곽선 제거 */
 input:focus-visible,
 textarea:focus-visible {
   outline: none;
 }
 
+/* 숫자 입력(number type input) 요소의 증가/감소 화살표 버튼 제거 */
 /* https://stackoverflow.com/a/22306944/13151903 */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
@@ -37,6 +56,7 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+/* 색상 선택기(color picker) 스타일 커스터마이징 */
 input[type='color']::-webkit-color-swatch-wrapper {
   padding: 0;
 }
@@ -44,36 +64,44 @@ input[type='color']::-webkit-color-swatch {
   @apply border-outline-variant;
 }
 
+/* 스크롤바 커스터마이징 - 기본 스타일 */
 .scroll {
   overflow: overlay;
 }
 .scroll::-webkit-scrollbar {
   width: 10px;
 }
+/* 스크롤바 썸(움직이는 부분)에 대한 호버 효과 */
 .scroll:hover::-webkit-scrollbar-thumb {
   @apply bg-on-background/10 hover:bg-on-background/20 active:bg-on-background/30;
 }
+/* 스크롤 가능한 컨테이너의 부모 요소 스타일 */
 .scroll-parent {
   @apply flex flex-col overflow-hidden;
 }
 
+/* 수평 스크롤을 위한 스타일 */
 .scroll-h {
   @apply overflow-x-auto;
 }
+/* 수평 스크롤바 숨기기 (Safari 및 Chrome) */
 .scroll-h::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
 }
 
+/* 검색 결과 강조 표시를 위한 스타일 */
 .match-highlight {
   @apply bg-yellow-500/30;
   color: unset;
 }
 
+/* 단락(p 태그) 스타일 */
 p {
   @apply py-2;
 }
 
-/* https://daisyui.com/components/divider */
+/* 구분선(divider) 컴포넌트 스타일 */
+
 .divider {
   display: flex;
   flex-direction: row;
@@ -83,6 +111,7 @@ p {
   white-space: nowrap;
   @apply my-2 gap-2;
 }
+/* 구분선의 좌우 선 부분 생성 (가상 요소 사용) */
 .divider:before,
 .divider:after {
   content: '';
@@ -91,6 +120,7 @@ p {
   @apply bg-surface-variant h-px;
 }
 
+/* 진행 상태 애니메이션을 위한 스타일 */
 .progress-bit {
   animation-name: progress;
   animation-duration: 4s;
@@ -98,19 +128,27 @@ p {
   transform: translate3d(0px, 0px, 0px);
   animation-timing-function: linear;
 }
-
+/* @keyframes는 CSS 애니메이션을 정의하는 지시문입니다
+   - 애니메이션의 시작부터 끝까지의 상태를 단계별로 정의
+   - from: 시작 상태
+   - 50%: 중간 상태
+   - to: 끝 상태
+   - transform 속성을 사용하여 요소의 위치와 크기를 조절 
+*/
+/* 진행 상태 애니메이션의 키프레임 정의 */
 @keyframes progress {
   from {
-    transform: translateX(0%) scaleX(1);
+    transform: translateX(0%) scaleX(1); /* 시작: 왼쪽에서 시작, 원래 크기 */
   }
   50% {
-    transform: translateX(1000%) scaleX(3);
+    transform: translateX(1000%) scaleX(3); /* 중간: 오른쪽으로 이동, 3배 확대 */
   }
   to {
-    transform: translateX(2000%) scaleX(1);
+    transform: translateX(2000%) scaleX(1); /* 끝: 더 오른쪽으로 이동, 원래 크기로 복귀 */
   }
 }
 
+/* 목록 행에 호버 시 액션 버튼을 표시하는 스타일 */
 .list-row:hover .action {
   display: block;
 }
