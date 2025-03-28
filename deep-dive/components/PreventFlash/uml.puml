@@ -1,0 +1,30 @@
+@startuml
+title useEffect로 테마 설정과 PreventFlash 사용 비교
+
+skinparam sequence {
+    ArrowColor #666666
+}
+
+participant Browser as "브라우저"
+participant React as "React"
+participant LocalStorage as "로컬 스토리지"
+participant Server as "서버"
+
+== useEffect로 테마 설정 ==
+
+Browser -> Server: HTML 요청
+Server -> Browser: HTML 응답 (기본 테마)
+Browser -[#99FF99]> Browser: 초기 렌더링 (라이트 모드)
+React -> LocalStorage: useEffect 실행 - 테마 가져오기
+LocalStorage -> React: 테마 정보
+React -[#FF9999]> Browser: 테마 변경 (다크 모드)
+Browser -[#FF9999]> Browser: 화면 깜빡 (FOUC 발생)
+
+== PreventFlash 사용 ==
+Browser -> Server: HTML 요청
+Server -> Browser: HTML 응답
+Browser -> LocalStorage: 테마 가져오기(<head> 파싱 중 <script> 실행)
+LocalStorage -> Browser: 테마 정보
+Browser -[#99FF99]> Browser: 초기 렌더링 (다크 모드)
+
+@enduml

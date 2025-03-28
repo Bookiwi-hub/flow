@@ -89,8 +89,11 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ### 모노레포 구조
 
-![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
+---
+
 [Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
+
+![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
 
 ### 데이터 구조 및 관리
 
@@ -118,3 +121,60 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [Blob 데이터란?](./deep-dive/data/blob.md)
 - [Data URL이란?](./deep-dive/data/Data%20URL.md)
 - [FileReader란?](./deep-dive/data/fileReader.md)
+
+### 컴포넌트
+
+---
+
+#### preventFlash
+
+[FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
+
+![데이터 관리 흐름](./deep-dive/components/PreventFlash/uml.png)
+
+## 차용 가능한 부분
+
+## 데이터 구조
+
+- [DB](#데이터-구조)
+- [highlight](./apps/reader/src/annotation.ts)
+
+### 라이브러리
+
+- epubjs(epup 라이브러리)
+- turbo(모노레포 도구)
+- Dexie(indexDB 라이브러리)
+- react-use(유용한 훅 모음)
+  - usePrevious
+  - useSet
+  - useLocalStorage
+
+### 유틸&훅
+
+- [color.ts](./apps/reader/src/color.ts)(색상 처리 유틸리티 함수)
+- [platform.ts](./apps/reader/src/platform.ts)(터치 스크린인지 확인)
+- [state.ts](./apps/reader/src/)(설정 전역 관리)
+- [util.ts](./apps/reader/src/utils.ts)(유틸 함수들(클립보드 복사 함수 등))
+- [file.ts](./apps/reader/src/utils.ts)(파일 형식 변환)
+
+### 컴포넌트
+
+- [PreventFlash](./deep-dive/components/PreventFlash/PreventFlash.md)(FOUC 방지용)
+
+### 클래스
+
+### 코드
+
+줌 비활성화
+
+```tsx
+<head>
+  {/* 뷰포트 설정으로 화면 크기를 고정하고 핀치 줌 비활성화  */}
+  {/* https://github.com/microsoft/vscode/blob/36fdf6b697cba431beb6e391b5a8c5f3606975a1/src/vs/code/browser/workbench/workbench.html#L16 */}
+  <!-- Disable pinch zooming -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+  />
+</head>
+```
