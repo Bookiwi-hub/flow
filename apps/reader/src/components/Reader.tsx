@@ -44,6 +44,12 @@ import { DropZone, SplitView, useDndContext, useSplitViewItem } from './base'
 import * as pages from './pages'
 
 /**
+ * reader 컴포넌트 분석
+ * 작성자: 조현지
+ * @see {@link ./deep-dive/reader-component/Reader.md}
+ */
+
+/**
  * 키보드 이벤트 핸들러 함수
  * @param {BookTab} tab - 현재 활성화된 책 탭
  * @returns {(e: KeyboardEvent) => void} - 키보드 이벤트 핸들러 함수

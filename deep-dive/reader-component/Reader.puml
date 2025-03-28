@@ -1,0 +1,91 @@
+@startuml BookPane
+class ReaderGridView {
+  +render()
+}
+
+class ReaderGroup {
+  -index: number
+  -handleMouseDown()
+  +render()
+}
+
+class PaneContainer {
+  -active: boolean
+  +render()
+}
+
+class BookPane {
+  -tab: BookTab
+  -onMouseDown: function
+  -ref: useRef
+  -prevSize: useRef
+  -applyCustomStyle()
+  +render()
+}
+
+class ReaderPaneHeader {
+  -tab: BookTab
+  +render()
+}
+
+class ReaderPaneFooter {
+  -tab: BookTab
+  +render()
+}
+
+class Bar {
+  -className: string
+  +render()
+}
+
+class BookTab {
+  +id: string
+  +title: string
+  +isBook: boolean
+  +location: object
+  +locationToReturn: object
+  +rendition: object
+  +book: object
+  +container: HTMLElement
+  +iframe: HTMLIFrameElement
+  +rendered: boolean
+  +next()
+  +prev()
+  +render(el: HTMLElement)
+  +display(cfi: string, animation: boolean)
+  +showPrevLocation()
+  +hidePrevLocation()
+  +getNavPath()
+}
+
+class "handleKeyDown()" << (F,orchid) function >> {
+  +keyboardEvent: KeyboardEvent
+}
+
+ReaderGridView "1" *--> "many" ReaderGroup : contains
+ReaderGroup "1" *--> "many" PaneContainer : contains
+PaneContainer "1" *--> "0..1" BookPane : contains for BookTab
+BookPane *--> "1" ReaderPaneHeader : contains
+BookPane *--> "1" ReaderPaneFooter : contains
+ReaderPaneHeader --|> Bar : extends
+ReaderPaneFooter --|> Bar : extends
+BookPane ..> BookTab : uses
+ReaderPaneHeader ..> BookTab : uses
+ReaderPaneFooter ..> BookTab : uses
+ReaderGridView ..> "handleKeyDown()" : uses
+BookPane ..> "handleKeyDown()" : uses
+
+note right of BookPane
+  책 콘텐츠를 표시하고 
+  페이지 이동, 이미지 확대, 
+  텍스트 선택 등의 기능을 처리하는
+  핵심 컴포넌트
+end note
+
+note right of BookTab
+  책의 상태와 정보를 저장하고
+  페이지 이동 기능을 제공하는
+  모델 클래스
+end note
+
+@enduml
