@@ -155,7 +155,7 @@ export const dropboxBooksFetcher = (path: string) => {
 }
 
 /**
- * 로컬 데이터를 ZIP 파일로 백업하는 함수
+ * ZIP 파일 로컬에 다운로드하는 함수
  * @return {Promise<void>} - ZIP 파일 생성 및 다운로드
  * @example
  * await pack();

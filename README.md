@@ -89,8 +89,11 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ### 모노레포 구조
 
-![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
+---
+
 [Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
+
+![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
 
 ### 데이터 구조 및 관리
 
@@ -120,3 +123,81 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [FileReader란?](./deep-dive/data/fileReader.md)
 - [TextSelectionMenu요약](./apps/reader/src/components/TextSelectionMenu.md)
 - [절대좌표,좌표개념](./apps/reader/src/components/TextSelectionMenu2.md)
+
+### 컴포넌트
+
+---
+
+#### PreventFlash
+
+[FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
+
+![데이터 관리 흐름](./deep-dive/components/PreventFlash/uml.png)
+
+### 유틸
+
+---
+
+#### [layout](./apps/reader/src/components/base/ContextView.tsx)
+
+- 뷰포트 내에서 앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수
+- 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용
+
+## ![layout](./apps/reader/src/components/base/ContextView.png)
+
+## 차용 가능한 부분
+
+## 데이터 구조
+
+- [DB](#데이터-구조)
+- [highlight](./apps/reader/src/annotation.ts)
+
+### 라이브러리
+
+- epubjs(epup 라이브러리)
+- turbo(모노레포 도구)
+- Dexie(indexDB 라이브러리)
+- react-use(유용한 훅 모음)
+  - usePrevious
+  - useSet
+  - useLocalStorage
+
+### 유틸
+
+- [color.ts](./apps/reader/src/color.ts)(색상 처리 유틸리티 함수)
+- [platform.ts](./apps/reader/src/platform.ts)(터치 스크린인지 확인)
+- [state.ts](./apps/reader/src/)(설정 전역 관리)
+- [util.ts](./apps/reader/src/utils.ts)(유틸 함수들(클립보드 복사 함수 등))
+- [file.ts](./apps/reader/src/utils.ts)(파일 형식 변환)
+- [mime.ts](./apps/reader/src/mime.ts)(MIME 타입과 파일 확장자 간의 매핑을 정의하는 객체, .epub||.zip)
+- [ContextView](./apps/reader/src/components/base/ContextView.tsx)(앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수, 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용)
+
+### 훅
+
+- [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts)(애플리케이션의 컬러(라이트/다크 모드)을 관리하는 훅)
+
+### 컴포넌트
+
+- [PreventFlash](./deep-dive/components/PreventFlash/PreventFlash.md)(FOUC 방지용)
+- [DropZone](./apps/reader/src/components/base/DropZone.tsx)(Drop 영역 생성)
+- [SplitView.tsx](./apps/reader/src/components/base/SplitView.tsx) && [PaneView.tsx](./apps/reader/src/components/base/PaneView.tsx)(화면 분할 및 크기 조정 관련 컨테이너)
+- [Annotation.tsx](./apps/reader/src/components/Annotation.tsx)(하이라이트 UI 이펙트 처리, 추후 훅으로 만들어 사용해도 좋을 것 같다.)
+- [Theme](./apps/reader/src/components/Theme.tsx)(루트에 박혀있는 전체 애플리케이션의 테마 설정 컴포넌트)
+
+### 클래스
+
+### 코드
+
+줌 비활성화
+
+```tsx
+<head>
+  {/* 뷰포트 설정으로 화면 크기를 고정하고 핀치 줌 비활성화  */}
+  {/* https://github.com/microsoft/vscode/blob/36fdf6b697cba431beb6e391b5a8c5f3606975a1/src/vs/code/browser/workbench/workbench.html#L16 */}
+  <!-- Disable pinch zooming -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+  />
+</head>
+```
