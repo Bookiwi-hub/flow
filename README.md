@@ -145,7 +145,7 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ---
 
-### reader 총괄 클래스 구조
+### [reder](./deep-dive/reader/reader.md) 총괄 클래스 구조
 
 ```mermaid
 classDiagram
@@ -240,7 +240,7 @@ classDiagram
 
 ---
 
-### 핵심 클래스 BookTab
+### 핵심 클래스 [bookTab](./deep-dive/reader/bookTab.md)
 
 ```mermaid
 flowchart TD
