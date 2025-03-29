@@ -126,11 +126,22 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ---
 
-#### preventFlash
+#### PreventFlash
 
 [FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
 
 ![데이터 관리 흐름](./deep-dive/components/PreventFlash/uml.png)
+
+### 유틸
+
+---
+
+#### [layout](./apps/reader/src/components/base/ContextView.tsx)
+
+- 뷰포트 내에서 앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수
+- 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용
+
+## ![layout](./apps/reader/src/components/base/ContextView.png)
 
 ## 차용 가능한 부분
 
@@ -156,10 +167,14 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [state.ts](./apps/reader/src/)(설정 전역 관리)
 - [util.ts](./apps/reader/src/utils.ts)(유틸 함수들(클립보드 복사 함수 등))
 - [file.ts](./apps/reader/src/utils.ts)(파일 형식 변환)
+- [mime.ts](./apps/reader/src/mime.ts)(MIME 타입과 파일 확장자 간의 매핑을 정의하는 객체, .epub||.zip)
+- [ContextView](./apps/reader/src/components/base/ContextView.tsx)(앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수, 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용)
 
 ### 컴포넌트
 
 - [PreventFlash](./deep-dive/components/PreventFlash/PreventFlash.md)(FOUC 방지용)
+- [DropZone](./apps/reader/src/components/base/DropZone.tsx)(Drop 영역 생성)
+- [SplitView.tsx](./apps/reader/src/components/base/SplitView.tsx) && [PaneView.tsx](./apps/reader/src/components/base/PaneView.tsx)(화면 분할 및 크기 조정 관련 컨테이너)
 
 ### 클래스
 
