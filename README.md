@@ -180,6 +180,7 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [DropZone](./apps/reader/src/components/base/DropZone.tsx)(Drop 영역 생성)
 - [SplitView.tsx](./apps/reader/src/components/base/SplitView.tsx) && [PaneView.tsx](./apps/reader/src/components/base/PaneView.tsx)(화면 분할 및 크기 조정 관련 컨테이너)
 - [Annotation.tsx](./apps/reader/src/components/Annotation.tsx)(하이라이트 UI 이펙트 처리, 추후 훅으로 만들어 사용해도 좋을 것 같다.)
+- [Theme](./apps/reader/src/components/Theme.tsx)(루트에 박혀있는 전체 애플리케이션의 테마 설정 컴포넌트)
 
 ### 클래스
 
