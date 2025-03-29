@@ -143,6 +143,220 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ## ![layout](./apps/reader/src/components/base/ContextView.png)
 
+---
+
+### reader 총괄 클래스 구조
+
+```mermaid
+classDiagram
+    class Reader {
+        +groups: Group[]
+        +focusedIndex: number
+        +focusedGroup: Group
+        +focusedTab: Tab
+        +focusedBookTab: BookTab
+        +addTab(param, groupIdx)
+        +removeTab(index, groupIdx)
+        +replaceTab(param, index, groupIdx)
+        +removeGroup(index)
+        +addGroup(tabs, index)
+        +selectGroup(index)
+        +clear()
+        +resize()
+    }
+
+    class Group {
+        +id: string
+        +tabs: Tab[]
+        +selectedIndex: number
+        +selectedTab: Tab
+        +bookTabs: BookTab[]
+        +removeTab(index)
+        +addTab(param)
+        +replaceTab(param, index)
+        +selectTab(index)
+    }
+
+    class BaseTab {
+        +id: string
+        +title: string
+        +isBook: boolean
+        +isPage: boolean
+    }
+
+    class BookTab {
+        +book: BookRecord
+        +epub: Book
+        +iframe: Window
+        +rendition: Rendition
+        +nav: Navigation
+        +section: ISection
+        +sections: ISection[]
+        +results: IMatch[]
+        +rendered: boolean
+        +container: HTMLDivElement
+        +timeline: TimelineItem[]
+        +display(target, returnable)
+        +prev()
+        +next()
+        +updateBook(changes)
+        +search(keyword)
+        +render(el)
+    }
+
+    class PageTab {
+        +Component: React.FC
+    }
+
+    class ISection {
+        +length: number
+        +images: string[]
+        +navitem: INavItem
+    }
+
+    class INavItem {
+        +subitems: INavItem[]
+    }
+
+    class TimelineItem {
+        +location: Location
+        +timestamp: number
+    }
+
+    Reader "1" *-- "0..*" Group : contains
+    Group "1" *-- "0..*" BaseTab : contains
+    BaseTab <|-- BookTab : extends
+    BaseTab <|-- PageTab : extends
+    BookTab "1" *-- "0..*" ISection : contains
+    BookTab "1" *-- "0..*" TimelineItem : contains
+    ISection "1" *-- "0..1" INavItem : contains
+    INavItem "1" *-- "0..*" INavItem : contains
+
+    %% 현재 상태 표현 (그룹 2개, 각각 탭 1개씩)
+    note for Reader "현재 상태:\ngroups.length = 2\nfocusedIndex = 0"
+    note for Group "Group 1: tabs.length = 1\nGroup 2: tabs.length = 1"
+
+```
+
+---
+
+### 핵심 클래스 BookTab
+
+```mermaid
+flowchart TD
+    BookTab["BookTab 클래스"] --> |"초기화"| Book["Book 객체(epub.js)"]
+    Book --> |"로드"| SpineData["Spine 데이터(문서 논리적 순서)"]
+    Book --> |"로드"| NavData["Navigation 데이터(목차)"]
+
+    BookTab --> |"렌더링"| Rendition["Rendition 객체(epub.js)"]
+    Rendition --> |"표시"| Container["Container(DOM 요소)"]
+
+    BookTab --> |"위치 추적"| Timeline["Timeline(사용자 탐색 기록)"]
+    Timeline --> |"저장"| Location["Location 객체(현재 위치)"]
+    Location --> |"업데이트"| BookRecord["BookRecord(진행률, CFI 등)"]
+
+    BookTab --> |"검색"| SearchModule["검색 기능(키워드 검색)"]
+    SearchModule --> |"결과"| Results["IMatch[](검색 결과)"]
+
+    BookTab --> |"탐색"| Navigation["탐색 기능"]
+    Navigation --> |"이동"| Display["display(target)(특정 위치로 이동)"]
+    Navigation --> |"이전"| Prev["prev()(이전 페이지)"]
+    Navigation --> |"다음"| Next["next()(다음 페이지)"]
+
+    BookTab --> |"주석"| Annotation["주석 기능"]
+    Annotation --> |"추가"| PutAnnotation["putAnnotation()(주석 추가/수정)"]
+    Annotation --> |"제거"| RemoveAnnotation["removeAnnotation()(주석 제거)"]
+
+    BookTab --> |"정의"| Definition["정의 기능"]
+    Definition --> |"추가"| Define["define()(정의 추가)"]
+    Definition --> |"제거"| Undefine["undefine()(정의 제거)"]
+
+    %% 이벤트 처리
+    Rendition --> |"이벤트"| Events["이벤트 처리"]
+    Events --> |"relocated"| RelocatedEvent["위치 변경 이벤트(위치, 진행률 업데이트)"]
+    Events --> |"rendered"| RenderedEvent["렌더링 완료 이벤트(섹션 업데이트)"]
+
+    %% 주요 속성 및 참조
+    BookTab --> |"참조"| Section["ISection(현재 섹션)"]
+    BookTab --> |"참조"| View["View 객체(현재 뷰)"]
+    BookTab --> |"참조"| NavItem["INavItem(현재 탐색 항목)"]
+```
+
+### 주석 추가 기능
+
+```mermaid
+flowchart TD
+    A[putAnnotation 호출] --> B{navitem 존재?}
+    B -->|No| C[중단]
+    B -->|Yes| D[cfi로 검색]
+    D --> E{주석 있음?}
+    E -->|No| F[새 주석 생성]
+    E -->|Yes| G[기존 주석 가져오기]
+    F --> H[annotations에 추가]
+    G --> I[주석 업데이트]
+    I --> J[annotations 갱신]
+    H --> K[updateBook 호출]
+    J --> K
+    K --> L[종료]
+    C --> L
+```
+
+### 페이지 탐색 흐름
+
+```mermaid
+flowchart TD
+    A[사용자 요청] --> B{요청 유형}
+    B -->|display| C[display 호출]
+    B -->|prev| D[prev 호출]
+    B -->|next| E[next 호출]
+
+    C --> F[rendition.display]
+    D --> G[rendition.prev]
+    E --> H[rendition.next]
+
+    F --> I[위치 업데이트]
+    G --> J[위치 업데이트]
+    H --> K[위치 업데이트]
+
+    I --> L[timeline에 추가]
+    J --> L
+    K --> L
+
+    L --> M[BookRecord 업데이트]
+    M --> N[종료]
+```
+
+### 렌더링 및 목차 처리
+
+```mermaid
+flowchart TD
+    A[render 호출] --> B[EPUB 파일 로드]
+    B --> C[Book 객체 생성]
+    C --> D[Navigation 로드]
+    C --> E[Spine 로드]
+    E --> F[섹션 로드 및 처리]
+    F --> G[rendition 생성 및 초기화]
+    G --> H[마지막 위치로 이동]
+    H --> I[스타일 적용]
+    I --> J[이벤트 핸들러 등록]
+    J --> K[렌더링 완료]
+    K --> L[종료]
+
+    %% 목차 관련 기능
+    D --> M[nav 속성에 저장]
+    M --> N[목차 UI 표시]
+    N --> O[사용자 목차 항목 선택]
+    O --> P[display 호출]
+    P --> Q[해당 섹션으로 이동]
+
+    %% 현재 목차 항목 확인
+    R[현재 섹션 확인] --> S[getNavPath 호출]
+    S --> T[현재 목차 경로 반환]
+    T --> U[UI에 표시]
+```
+
+
+
 ## 차용 가능한 부분
 
 ## 데이터 구조
