@@ -160,7 +160,7 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
   - useSet
   - useLocalStorage
 
-### 유틸&훅
+### 유틸
 
 - [color.ts](./apps/reader/src/color.ts)(색상 처리 유틸리티 함수)
 - [platform.ts](./apps/reader/src/platform.ts)(터치 스크린인지 확인)
@@ -169,6 +169,10 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [file.ts](./apps/reader/src/utils.ts)(파일 형식 변환)
 - [mime.ts](./apps/reader/src/mime.ts)(MIME 타입과 파일 확장자 간의 매핑을 정의하는 객체, .epub||.zip)
 - [ContextView](./apps/reader/src/components/base/ContextView.tsx)(앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수, 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용)
+
+### 훅
+
+- [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts)(애플리케이션의 컬러(라이트/다크 모드)을 관리하는 훅)
 
 ### 컴포넌트
 
