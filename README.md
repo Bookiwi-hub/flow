@@ -118,3 +118,5 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [Blob 데이터란?](./deep-dive/data/blob.md)
 - [Data URL이란?](./deep-dive/data/Data%20URL.md)
 - [FileReader란?](./deep-dive/data/fileReader.md)
+- [TextSelectionMenu요약](./apps/reader/src/components/TextSelectionMenu.md)
+- [절대좌표,좌표개념](./apps/reader/src/components/TextSelectionMenu2.md)
