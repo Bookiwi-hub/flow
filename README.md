@@ -169,6 +169,7 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - [file.ts](./apps/reader/src/utils.ts)(파일 형식 변환)
 - [mime.ts](./apps/reader/src/mime.ts)(MIME 타입과 파일 확장자 간의 매핑을 정의하는 객체, .epub||.zip)
 - [ContextView](./apps/reader/src/components/base/ContextView.tsx)(앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수, 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용)
+- [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts)
 
 ### 컴포넌트
 
