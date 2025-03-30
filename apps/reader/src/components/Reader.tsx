@@ -501,7 +501,6 @@ function BookPane({ tab, onMouseDown }: BookPaneProps) {
     }
   })
 
-  // 왼쪽으로 스와이프하면 다음 페이지로 이동한다.
   useDisablePinchZooming(iframe)
 
   return (
