@@ -387,6 +387,13 @@ flowchart TD
 ### 훅
 
 - [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts)(애플리케이션의 컬러(라이트/다크 모드)을 관리하는 훅)
+- [useTypography](./apps/reader/src/hooks/useTypography.ts)(타이포그래피 설정을 관리하는 유틸리티 및 훅)
+- [useTextSelection](./apps/reader/src/hooks/useTextSelection.ts)(사용자의 텍스트 선택을 추적하고 관리하는 훅)
+- [useMobile](./apps/reader/src/hooks/useMobile.ts)(모바일 환경 감지 훅)
+- [useList](./apps/reader/src/hooks/useList.ts)(가상화된 리스트를 관리하는 훅)
+- [useLibrary](./apps/reader/src/hooks/useLibrary.ts)(useLiveQuery를 사용해 책 라이브러리 데이터를 실시간으로 가져오는 훅)
+- [useForceRender](./apps/reader/src/hooks/useForceRender.ts)(컴포넌트를 강제로 다시 렌더링하는 훅)
+- [useDisablePinchZooming](./apps/reader/src/hooks/useForceRender.ts)(핀치 줌 기능을 비활성화하는 React 훅)
 
 ### 컴포넌트
 
