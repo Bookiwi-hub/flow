@@ -27,31 +27,7 @@ class CoverRecord {
 }
 
 
-interface Annotation {
-  +id: string
-  +bookId: string
-  +cfi: string
-  +spine: { index: number, title: string }
-  +createAt: number
-  +updatedAt: number
-  +type: AnnotationType
-  +color: AnnotationColor
-  +notes: string | undefined
-  +text: string
-}
 
-' AnnotationType과 AnnotationColor는 enum으로 표현
-enum AnnotationType {
-  highlight
-  'underline (주석 처리됨, 향후 구현 예정)'
-}
-
-enum AnnotationColor {
-  yellow
-  red
-  green
-  blue
-}
 
 ' DB 클래스 정의
 class DB {
@@ -67,12 +43,7 @@ DB -- FileRecord
 DB -- CoverRecord 
 DB -- BookRecord 
 
-' BookRecord와 Annotation 간의 관계
-BookRecord --> Annotation : contains
 
-' Annotation과 AnnotationType, AnnotationColor 간의 관계
-Annotation --> AnnotationType : uses
-Annotation --> AnnotationColor : uses
 
 FileRecord <->BookRecord :reference
 BookRecord <->CoverRecord :reference
