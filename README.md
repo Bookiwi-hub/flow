@@ -1,5 +1,65 @@
 # 📖 Flow Deep Dive Sprint
 
+## 🏃‍♂️FlowDeepDive.start("2025.03.16")
+
+<table>
+  <tr>
+  <td align="center" width="200px">
+      <a href="https://github.com/JayChae" target="_blank">
+        <img src="https://avatars.githubusercontent.com/JayChae" alt="채종민 프로필" />
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a href="https://github.com/Sparrowlim" target="_blank">
+        <img src="https://avatars.githubusercontent.com/Sparrowlim" alt="임진조 프로필" />
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a href="https://github.com/cindycho0423" target="_blank">
+        <img src="https://avatars.githubusercontent.com/cindycho0423" alt="조현지 프로필" />
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a href="https://github.com/hongseoha" target="_blank">
+        <img src="https://avatars.githubusercontent.com/hongseoha" alt="홍서하 프로필" />
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a href="https://github.com/Sparrowlim" target="_blank">
+        <img src="https://avatars.githubusercontent.com/Han-wo" alt="한상우 프로필" />
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <a href="https://github.com/JayChae" target="_blank">
+        채종민
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Sparrowlim" target="_blank">
+        임진조
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/cindycho0423" target="_blank">
+        조현지
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/hongseoha" target="_blank">
+        홍서하
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Han-wo" target="_blank">
+        한상우
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## 🛠️ 문제 상황
 
 ### 🧐 상황
@@ -21,8 +81,6 @@
 
 기존 오픈소스 이북 리더기 **"Flow"를 분석하는 "Flow Deep Dive Sprint"를 진행하자.**
 
----
-
 ## 🎯 스프린트 목표
 
 Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하고, 북키위 서비스 적용 방안을 도출하고, 강력한 이력 활동을 확보해보자.
@@ -37,8 +95,6 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 - **기술적 리스크 최소화 및 구현 방향 설정**
   - 개발 과정에서 발생할 수 있는 **기술적 장애물을 사전 파악**하고 해결 방안을 모색한다.
   - Flow 코드를 분석하여 **북키위 서비스에 적합한 기술 스택을 정리**한다.
-
----
 
 ### 📌 커리어 목표
 
@@ -63,10 +119,12 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 
 ## 🚀 성과
 
+**주석**
+
 │── 📂 [.github](./.github/index.md) # GitHub 관련 설정 (FUNDING.yml)  
 │── 📂 [.husky](./.husky/index.md) # Husky와 관련된 설정 파일들을 저장하는 디렉터리  
 │── 📂 [.vscode](./.vscode/index.md) # VS Code 편집기 설정  
-│── 📂 [apps](./apps/index.md) # 애플리케이션 소스 코드  
+│── 📂 [apps](./apps/folder.md) # 애플리케이션 소스 코드  
 │── 📂 [packages](./packages/index.md) # 모노레포에서 공통 패키지 및 라이브러리  
 │── 📄 .dockerignore # Docker 빌드 시 제외할 파일 목록  
 │── 📄 [.eslintrc.js](./.eslintrc.js) # ESLint 설정 파일 (코드 스타일 검사)  
@@ -87,67 +145,70 @@ Flow 레포지토리를 분석하여 이북 리더기 개발 역량을 강화하
 │── 📄 [tsconfig.ts.json](./tsconfig.ts.json) # TypeScript 설정 파일  
 │── 📄 [turbo.json](./turbo.json.md) # TurboRepo 빌드 시스템 설정 파일 (모노레포)
 
-### 모노레포 구조
+**Deep Dive**
 
----
+[분석 아티클 모음 폴더](./deep-dive/)
+
+## 모노레포 구조
 
 [Flow 모노레포 구조와 빌드 흐름 정리(pnpm, Docker)](./deep-dive/monorepo-deep-dive/index.md)
 
 ![Flow 모노레포 다이어그램](./deep-dive/monorepo-deep-dive/uml.png)
 
-### 데이터 구조 및 관리
+## 데이터 구조 및 관리
 
----
+### 데이터베이스 데이터
 
-- **데이터베이스 데이터**  
-  indexDB & dropbox
-  ![데이터베이스 구조](./deep-dive/data/database.png)
+indexDB & dropbox
+![데이터베이스 구조](./deep-dive/data/database.png)
 
----
+### 전역 상태 데이터
 
-- **전역 상태 데이터**  
-  recoil  
-  ![전역 상태](./deep-dive/data/state.png)
+**Recoil**
 
----
+![Recoil 전역 상태](./deep-dive/data/state.png)
 
-- **데이터 관리 흐름**  
-  데이터의 동기화 및 관리 흐름 구조 정리
-  ![데이터 관리 흐름](./deep-dive/data/sync.png)
+**Valtio**
 
----
+![Valtio 전역 상태](./deep-dive/data/valtio.png)
+
+### 데이터 관리 흐름
+
+데이터의 동기화 및 관리 흐름 구조 정리
+![데이터 관리 흐름](./deep-dive/data/sync.png)
 
 - [indexDB란?](./deep-dive/data/indexDB.md)
 - [Blob 데이터란?](./deep-dive/data/blob.md)
 - [Data URL이란?](./deep-dive/data/Data%20URL.md)
 - [FileReader란?](./deep-dive/data/fileReader.md)
-- [TextSelectionMenu요약](./apps/reader/src/components/TextSelectionMenu.md)
-- [절대좌표,좌표개념](./apps/reader/src/components/TextSelectionMenu2.md)
 
-### 컴포넌트
+## 컴포넌트
 
----
+### TextSelectionMenu
 
-#### PreventFlash
+- [TextSelectionMenu 요약](./deep-dive/components/TextSelectionMenu/TextSelectionMenu.md)
+- [절대좌표,좌표개념](./deep-dive/components/TextSelectionMenu/TextSelectionMenu2.md)
 
-[FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
+![](https://velog.velcdn.com/images/hansw98/post/125d03f3-c408-4214-98ec-c1f216d66d29/image.svg)
+
+### PreventFlash
+
+- [FOUC 해결을 위한 `PreventFlash` 컴포넌트 (다크 모드 전환 시 깜빡임 방지)](./deep-dive/components/PreventFlash/PreventFlash.md)
 
 ![데이터 관리 흐름](./deep-dive/components/PreventFlash/uml.png)
 
-### 유틸
+## 유틸
 
----
-
-#### [layout](./apps/reader/src/components/base/ContextView.tsx)
+### [layout](./apps/reader/src/components/base/ContextView.tsx)
 
 - 뷰포트 내에서 앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수
 - 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용
 
-## ![layout](./apps/reader/src/components/base/ContextView.png)
+![layout](./apps/reader/src/components/base/ContextView.png)
 
 ---
 
-### [reder](./deep-dive/reader/reader.md) 총괄 클래스 구조
+## 총괄 클래스 [Reader](./deep-dive/reader/reader.md) 구조
 
 ```mermaid
 classDiagram
@@ -242,7 +303,9 @@ classDiagram
 
 ---
 
-### 핵심 클래스 [bookTab](./deep-dive/reader/bookTab.md)
+### 핵심 클래스 BookTab
+
+[BookTab 분석](./deep-dive/reader/bookTab.md)
 
 ```mermaid
 flowchart TD
@@ -357,11 +420,9 @@ flowchart TD
     T --> U[UI에 표시]
 ```
 
-
-
 ## 차용 가능한 부분
 
-## 데이터 구조
+### 데이터 구조
 
 - [DB](#데이터-구조)
 - [highlight](./apps/reader/src/annotation.ts)
@@ -388,37 +449,31 @@ flowchart TD
 
 ### 훅
 
-- [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts)(애플리케이션의 컬러(라이트/다크 모드)을 관리하는 훅)
-- [useTypography](./apps/reader/src/hooks/useTypography.ts)(타이포그래피 설정을 관리하는 유틸리티 및 훅)
-- [useTextSelection](./apps/reader/src/hooks/useTextSelection.ts)(사용자의 텍스트 선택을 추적하고 관리하는 훅)
-- [useMobile](./apps/reader/src/hooks/useMobile.ts)(모바일 환경 감지 훅)
-- [useList](./apps/reader/src/hooks/useList.ts)(가상화된 리스트를 관리하는 훅)
-- [useLibrary](./apps/reader/src/hooks/useLibrary.ts)(useLiveQuery를 사용해 책 라이브러리 데이터를 실시간으로 가져오는 훅)
-- [useForceRender](./apps/reader/src/hooks/useForceRender.ts)(컴포넌트를 강제로 다시 렌더링하는 훅)
-- [useDisablePinchZooming](./apps/reader/src/hooks/useForceRender.ts)(핀치 줌 기능을 비활성화하는 React 훅)
+- [useColorScheme](./apps/reader/src/hooks/theme/useColorScheme.ts) (애플리케이션의 테마 컬러 관리하는 훅)
+- [useTypography](./apps/reader/src/hooks/useTypography.ts) (타이포그래피 설정을 관리하는 유틸리티 및 훅)
+- [useTextSelection](./apps/reader/src/hooks/useTextSelection.ts) (사용자의 텍스트 선택을 추적하고 관리하는 훅)
+- [useMobile](./apps/reader/src/hooks/useMobile.ts) (모바일 환경 감지 훅)
+- [useList](./apps/reader/src/hooks/useList.ts) (가상화된 리스트를 관리하는 훅)
+- [useLibrary](./apps/reader/src/hooks/useLibrary.ts) (useLiveQuery를 사용해 책 라이브러리 데이터를 실시간으로 가져오는 훅)
+- [useForceRender](./apps/reader/src/hooks/useForceRender.ts) (컴포넌트를 강제로 다시 렌더링하는 훅)
+- [useDisablePinchZooming](./apps/reader/src/hooks/useForceRender.ts) (핀치 줌 기능을 비활성화하는 React 훅)
 
 ### 컴포넌트
 
 - [PreventFlash](./deep-dive/components/PreventFlash/PreventFlash.md)(FOUC 방지용)
+- [TextSelectionMenu](./apps/reader/src/components/TextSelectionMenu.tsx)(전자책 리더에서 텍스트 선택 시 나타나는 컨텍스트 메뉴 구현)
 - [DropZone](./apps/reader/src/components/base/DropZone.tsx)(Drop 영역 생성)
-- [SplitView.tsx](./apps/reader/src/components/base/SplitView.tsx) && [PaneView.tsx](./apps/reader/src/components/base/PaneView.tsx)(화면 분할 및 크기 조정 관련 컨테이너)
-- [Annotation.tsx](./apps/reader/src/components/Annotation.tsx)(하이라이트 UI 이펙트 처리, 추후 훅으로 만들어 사용해도 좋을 것 같다.)
-- [Theme](./apps/reader/src/components/Theme.tsx)(루트에 박혀있는 전체 애플리케이션의 테마 설정 컴포넌트)
+- [SplitView.tsx](./apps/reader/src/components/base/SplitView.tsx) && [PaneView.tsx](./apps/reader/src/components/base/PaneView.tsx) (화면 분할 및 크기 조정 관련 컨테이너)
+- [Annotation.tsx](./apps/reader/src/components/Annotation.tsx) (하이라이트 UI 이펙트 처리, 추후 훅으로 만들어 사용해도 좋을 것 같다.)
+- [Theme](./apps/reader/src/components/Theme.tsx) (루트에 박혀있는 전체 애플리케이션의 테마 설정 컴포넌트)
 
 ### 클래스
 
+- [reader](./apps/reader/src/models/reader.ts)
+- [tree](./apps/reader/src/models/tree.ts)
+
 ### 코드
 
-줌 비활성화
+- [줌 비활성화](./deep-dive/codes/zoomDisable.md)
 
-```tsx
-<head>
-  {/* 뷰포트 설정으로 화면 크기를 고정하고 핀치 줌 비활성화  */}
-  {/* https://github.com/microsoft/vscode/blob/36fdf6b697cba431beb6e391b5a8c5f3606975a1/src/vs/code/browser/workbench/workbench.html#L16 */}
-  <!-- Disable pinch zooming -->
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
-  />
-</head>
-```
+## 🎊FlowDeepDive.end("2025.03.30")

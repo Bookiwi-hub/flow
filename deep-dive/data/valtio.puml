@@ -1,0 +1,51 @@
+
+@startuml
+
+class BookRecord {
+  +id: string
+  +name: string
+  +size: number
+  +metadata: PackagingMetadataObject
+  +createdAt: number
+  +updatedAt: number | undefined
+  +cfi: string | undefined
+  +percentage: number | undefined
+  +definitions: string[]
+  +annotations: Annotation[]
+  +configuration: { typography: TypographyConfiguration | undefined } | undefined
+}
+
+interface Annotation {
+  +id: string
+  +bookId: string
+  +cfi: string
+  +spine: { index: number, title: string }
+  +createAt: number
+  +updatedAt: number
+  +type: AnnotationType
+  +color: AnnotationColor
+  +notes: string | undefined
+  +text: string
+}
+
+' AnnotationType과 AnnotationColor는 enum으로 표현
+enum AnnotationType {
+  highlight
+  'underline (주석 처리됨, 향후 구현 예정)'
+}
+
+enum AnnotationColor {
+  yellow
+  red
+  green
+  blue
+}
+
+' BookRecord와 Annotation 간의 관계
+BookRecord --> Annotation : contains
+
+' Annotation과 AnnotationType, AnnotationColor 간의 관계
+Annotation --> AnnotationType : uses
+Annotation --> AnnotationColor : uses
+
+@enduml
