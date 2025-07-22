@@ -204,8 +204,6 @@ indexDB & dropbox
 - 뷰포트 내에서 앵커를 기준으로 컨텍스트 뷰의 위치를 계산하는 함수
 - 텍스트 선택 후 뜨는 팝업 메뉴 위치 계산 하는 데 사용
 
-![layout](./apps/reader/src/components/base/ContextView.png)
-
 ---
 
 ## 총괄 클래스 [Reader](./deep-dive/reader/reader.md) 구조
