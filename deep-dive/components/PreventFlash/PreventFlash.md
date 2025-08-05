@@ -85,6 +85,9 @@ function PreventFlash() {
 }
 ```
 
+![실제 사용 예시](./example.png)
+실제 사용 예시
+
 ### `<head>`에 위치
 
 `PreventFlash`는 `<head>` 태그 안에 삽입되어야 합니다. 이는 브라우저가 HTML을 위에서 아래로 파싱할 때 `<head>` 내의 `<script>` 태그를 만나면 즉시 실행하기 때문입니다. 따라서 페이지 렌더링이 시작되기 전에 테마를 설정할 수 있습니다.
